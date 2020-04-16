@@ -112,7 +112,7 @@ Si $y \in <X>$ entonces tendrá la forma de producto de elementos de $X$ (defini
  \textbf{Condición necesaria}
 Para cualesquiera $a,b \in X$ se tiene que $ab^{-1} \in <X> = X$ (por hipótesis) entonces acabamos de probar
 que $X$ es subgrupo. 
-
+\newpage
 
 \section[Ejercicio 13]{Ejercicio 13}
 
@@ -161,6 +161,71 @@ Por la transitividad de ser subgrupo y el teorema de lagrange, llegamos a las si
     $[G:G_2] |G_2| = [G:G_1] [G_1:G_2] |G_2|$, por tanto hemos probado lo que buscábamos
 
     $$[G:G_2] |G_2| = [G:G_1] [G_1:G_2] |G_2|$$
+
+
+    \begin{micaja}
+        3. Demostrar que si se tiene una cadena descendente de subgrupos de la forma
+        $$G=G_0 \geq G_1 \geq ...   \geq G_{r-1} \geq G_r,$$ 
+        entonces 
+        $$|G:G_r| = \prod_{i=0}^{r-1}[Gi:G_{i+1}]$$
+    \end{micaja}
+
+    Procederemos a demostrarlo por inducción, el caso base $r=3$ ya está hecho en el apartado anterior. 
+    Supongamos ahora cierta la hipótesis de inducción $|G:G_r| = \prod_{i=0}^{r-1}[Gi:Gi+1]$ para $r \geq 3$ y veamos que se cumple para 
+    $r+1$. 
+    Por la transitividad de ser subgrupo y el teorema de lagrange, llegamos a las siguientes igualdades:
+    \begin{align}
+        |G| = [G:G_r] |G_r|
+    \end{align}
+    \begin{align}
+        |G| = [G:G_{r+1}] |G_{r+1}|
+    \end{align}
+    \begin{align}
+        |G_r| = [G_r:G_{r+1}] |G_{r+1}|
+    \end{align}
+
+Sustituimos en (4) el valor de $|G|$ con (5) y $|G_r|$ con (6), llegando a 
+
+$$[G:G_{r+1}] |G_{r+1}|= [G:G_r] [G_r:G_{r+1}] |G_{r+1}|,
+$$
+entonces 
+$[G:G_{r+1}] = [G:G_r] [G_r:G_{r+1}]$ y utilizando la hipótesis de inducción 
+llegamos a 
+$$[G:G_{r+1}]= (\prod_{i=0}^{r-1}[Gi:G_{i+1}]) [G_r:G_{r+1}] = \prod_{i=0}^{r}[Gi:G_{i+1}].$$
+
+Probando lo que queríamos. 
+
+
+\begin{micaja}
+    4. Demostrar que si se tiene una cadena descendente de subgrupos de la forma
+    $$G=G_0 \geq G_1 \geq ...   \geq G_{r-1} \geq G_r=\{1\},$$ 
+    entonces 
+    $$|G| = \prod_{i=0}^{r-1}[Gi:G_{i+1}]$$
+\end{micaja}
+
+Esto es consecuencia se los apartado (1) y (3) de este ejercio. 
+
+Gracias a (3) tenemos que  $|G:G_r| = \prod_{i=0}^{r-1}[Gi:G_{i+1}]$, 
+usando ahora la hipótesis de que $G_r=\{1\}$ y por el apartado (1)
+
+$$|G| = |G:G_r| = \prod_{i=0}^{r-1}[Gi:G_{i+1}]$$
+
+Probando con ello lo que buscábamos. 
+
+
+\newpage
+
+\section[Ejercicio 21]{Ejercicio 21}  
+\begin{micaja}
+    Sea G un grupo, $a,b \in G$. 
+    \begin{enumerate}
+\item  Demuestra que el elemento $b$ y su conjugado $aba^1$ tienen el mismo orden.  
+\item Desmostra que o(ba) = o(ab).
+    \end{enumerate}
+\end{micaja}
+
+$$(aba^{-1})^r = a b^r a^{-1} = 1  \Longleftrightarrow b^r = 1$$. 
+Por tanto si r es el orden de alguno de ellos también lo será ara el otro.
 
 
 \end{document}

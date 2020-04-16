@@ -1,4 +1,5 @@
 *~
+*.gz
 dist
 dist-*
 cabal-dev
