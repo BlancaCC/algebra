@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath} 
+\usepackage[dvipsnames]{xcolor}
+
+\newenvironment{micaja}
+{
+    \begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }   
+    {   
+    \\\\\hline
+    \end{tabular} 
+    \end{center}
+    }
+
+
+
+\title{Ejercicios tema 2}
+\author{Blanca Cano Camarero}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\tableofcontents
+\end{titlepage}
+
+\section[Ejercicio 9]{Ejercicio 9}
+\begin{micaja}
+Sea $G$ un grupo y sean $a,b \in G$ tales que $ba = ab^k , a^n = 1 = b^m$
+con $n,m>0$
+\end{micaja}
+
+Demuestre 
+\begin{enumerate}
+ 
+    % APARTADO 1 __________________________
+    \item \textbf{Para todo $i=0,...,m-1$ se verifica $b^i a = a b^{ik}$}
+    
+    Demostraremos por inducción que se cumple para todo $i=0,...,m-1$.
+
+    \begin{itemize}
+        \item Caso base $i = 0$ evidente
+        \item Supongamos que para $i \in \{0...m-2\}$ se cumple y veamos que para i+1 también 
+        
+        $b^{i+1} a = b b^i a$ usando hipótesis de inducción y después hipótesis iniciales llegamos a  
+        $b (b^i a) = (b a) b^{ik}  = a  b^k b^{ik} = a ^{(i+1)k}$  
+        Como se quería probar. 
+    \end{itemize}  
+
+    % APARATADO 2  __________________
+    \item \textbf{Para todo $j  = 0,...,n-1$ se vereifica $b a^j = a^j b^{k^j}$}
+    
+    Lo demostraremos por  inducción que se cumple para todo $j=0,...,n-1$: 
+
+    \begin{itemize}
+        \item Caso base $j = 0$ evidente.
+        \item Supongamos que para $j \in \{0...n-2\}$ se cumple y veamos que para j+1 también 
+        $ b a^{j+1} = (b  a ^j ) a$ . 
+        Por la hipótesis de inducción $(b  a ^j ) a = a^j b^{k ^j} a$  \\
+        Usando ahora el partado 1 de este mismo ejercicio. \\
+        $a^j (b^{k ^j} a) = a^j a b^{k^j k } =  a^{j+1}b^{k^{j+1}}$  \\
+
+        Como queríamos ver 
+        
+    \end{itemize}  
+
+    % APARTADO 3______
+
+    \item \textbf{Para todo i=0,..,m-1 y para todo j = 0,..n-1 se verifica $b^ia^j = a^j b^{i k ^j}$.}
+    
+    Sea un j cualquiera en el rango mencionado. 
+    Lo demostraremos por inducción sobre i. 
+
+    \begin{itemize}
+        \item Caso base i=0, evidente para cualquier j. 
+        \item Hipótesis de inducción, supongamos cierto para  $1\leq i < m-1$ y veamo que se cumple para el caso $i+1$. 
+        
+        $b^{i+1} a^{j} =  b (b^i a^j) = (b a^j) b^{i k^j} = a^j b^{k^j} b^{i k^j} = a^j b^{(i+1) k^j}$
+        Donde para la primera igualadas se ha usado la prompiedad asociativa, para la segunda la hipótesisi de inducción, para la tercera el apartado 2 
+        de este mismo ejercicio y finalmente otra vez la propiedad asociativa. 
+
+        Como el j era arbitrario hemos probado lo que queríamos. 
+    \end{itemize}
+
+
+    % APARTADO 4 _______________
+    \item \textbf{Demostrar que todo elemento de $<a,b>$ puede escribirse como $a^rb^a$ con $0 \leq s <m$ $0 \leq r <n$.}
+    
+    Esto es consecuencia directa del apartado anterior y la definición de grupo generado, ya que todo elemento tendrá la forma $a^{z_0} b^{z_1}a*{z_2}...$ con 
+    los exponenetes enteros. Por tanto utilizando el apartado 3 podremos quedarno con que  $a^{z_0} b^{z_1}a*{z_2}... = a^x b^y$ con x,y enteros. 
+
+    Y como sea cual sera x e y podemos expresarlos como $ x = pn r, y = qm +s $
+    Usando las hipótesisi iniciales probamos con ello lo que queríamos. 
+
+
+\end{enumerate}
+\newpage
+
+\section[Ejercicio 10]{Ejercicio 10 }
+\begin{micaja}
+Demostrar que un subconjunto no vacío $X \subseteq G$ de un grupo $G$ es un subgrupo si y solo si $X = <X>$.
+\end{micaja}
+
+
+\textbf{Condición suficiente}
+Si $y \in <X>$ entonces tendrá la forma de producto de elementos de $X$ (definición de grupo generado),
+ como $X$ es subgrupo entonces será cerrado para el producto y tenemo por tanto que $X = <X>$.
+
+ \textbf{Condición necesaria}
+Para cualesquiera $a,b \in X$ se tiene que $ab^{-1} \in <X> = X$ (por hipótesis) entonces acabamos de probar
+que $X$ es subgrupo. 
+
+
+\section[Ejercicio 13]{Ejercicio 13}
+
+    \begin{micaja}
+    1. Demostrar que si $H \leq G$ es un subgrupo, entonces $[G:H] = |G|$ si y solo si, $H=\{1\}$, mientras que 
+    $[G:H]=1$ sii $H=G$.
+    \end{micaja}
+
+    Todo esto es consecuencia inmediata del teorema de Lagrange.
+    
+    
+\underline{Para $[G:H] = |G|$ si y solo si, $H=\{1\}$}
+
+    \begin{itemize}
+        \item 
+   
+    \textbf{Condición necesaria}. Por ser $H$ subgrupo distinto del vacío $1\in H$. El teorema de lagrange nos dice 
+    que $[G:H] |H| = |G|$, entonces tenemos que $|H|=1$ y esto implica que $H=\{1\}$.
+
+    \item \textbf{Condición suficiente}. Si $H=\{1\}$ entonces $|H|=1$ y por el teorema de lagrange $[G:H] = |G|$.
+    \end{itemize}
+
+    \underline{Para $[G:H]=1$ sii $H=G$.}
+    \begin{itemize}
+    \item \textbf{Condición necesaria}. Como  $H \leq G$ y por el teorema de lagrange $|H| = |G|$ entonces   $H=G$.
+    \item\textbf{Condición suficiente}. Si $H=G$ entonces $|H| = |G|$ y por el teorema de lagrangre no nos queda más que $[G:H]=1$, 
+    como queriamos probar. 
+\end{itemize}   
+    \begin{micaja}
+    2. Demostrar que si se tienen los subgrupos $G_2 \leq G_1 \leq G$, entonces $|G:G_2| = [G:G_1][G1:G2]$
+    \end{micaja}
+Por la transitividad de ser subgrupo y el teorema de lagrange, llegamos a las siguientes igualdades:
+    \begin{align}
+        |G| = [G:G_1] |G_1|
+    \end{align}
+    \begin{align}
+        |G| = [G:G_2] |G_2|
+    \end{align}
+    \begin{align}
+        |G_1| = [G_1:G_2] |G_2|
+    \end{align}
+
+    Sustituimos en la primera igualdad la el valor de $|G|$ que nos da la segunda y para el mienbro de la derechas Sustituimos
+    el valor de $|G_1|$ por el que nos da la tercera igualdad obteniendo la siguiente ecuación. 
+
+    $[G:G_2] |G_2| = [G:G_1] [G_1:G_2] |G_2|$, por tanto hemos probado lo que buscábamos
+
+    $$[G:G_2] |G_2| = [G:G_1] [G_1:G_2] |G_2|$$
+
+
+\end{document}
+
+
