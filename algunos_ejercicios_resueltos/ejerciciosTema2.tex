@@ -3,6 +3,8 @@
 \usepackage[spanish]{babel}
 \usepackage{amsmath} 
 \usepackage[dvipsnames]{xcolor}
+\usepackage{tikz-cd} % para retículo 
+
 
 \newenvironment{micaja}
 {
@@ -42,28 +44,34 @@ Demuestre
     Demostraremos por inducción que se cumple para todo $i=0,...,m-1$.
 
     \begin{itemize}
-        \item Caso base $i = 0$ evidente
-        \item Supongamos que para $i \in \{0...m-2\}$ se cumple y veamos que para i+1 también 
+        \item Caso base $i = 0$: evidente,  $b^0 a = a = a b^{0k}$
+        \item Hipótesis de inducción: 
         
-        $b^{i+1} a = b b^i a$ usando hipótesis de inducción y después hipótesis iniciales llegamos a  
-        $b (b^i a) = (b a) b^{ik}  = a  b^k b^{ik} = a ^{(i+1)k}$  
-        Como se quería probar. 
+        Supongamos que para $i \in \{0...m-2\}$ se cumple y veamos que para i+1 también.
+        
+        $$b^{i+1} a = b b^i a = b (b^i a) = (b a) b^{ik}  = a  b^k b^{ik} = a b^{(i+1)k.}$$  
+        Donde hemos usado la hipótesis de inducción y después aplicando las 
+        hipótesis iniciales.
+        
+        Por tanto hemos probado lo que se quería.
     \end{itemize}  
 
     % APARATADO 2  __________________
-    \item \textbf{Para todo $j  = 0,...,n-1$ se vereifica $b a^j = a^j b^{k^j}$}
+    \item \textbf{Para todo $j  = 0,...,n-1$ se verifica $b a^j = a^j b^{k^j}$}
     
     Lo demostraremos por  inducción que se cumple para todo $j=0,...,n-1$: 
 
     \begin{itemize}
         \item Caso base $j = 0$ evidente.
-        \item Supongamos que para $j \in \{0...n-2\}$ se cumple y veamos que para j+1 también 
-        $ b a^{j+1} = (b  a ^j ) a$ . 
+        \item Supongamos que para $j \in \{0...n-2\}$ 
+        se cumple y veamos que para j+1 también.
+    
+        $$b a^{j+1} = (b  a ^j ) a.$$ 
         Por la hipótesis de inducción $(b  a ^j ) a = a^j b^{k ^j} a$  \\
         Usando ahora el partado 1 de este mismo ejercicio. \\
         $a^j (b^{k ^j} a) = a^j a b^{k^j k } =  a^{j+1}b^{k^{j+1}}$  \\
 
-        Como queríamos ver 
+        Como queríamos ver. 
         
     \end{itemize}  
 
@@ -72,29 +80,36 @@ Demuestre
     \item \textbf{Para todo i=0,..,m-1 y para todo j = 0,..n-1 se verifica $b^ia^j = a^j b^{i k ^j}$.}
     
     Sea un j cualquiera en el rango mencionado. 
-    Lo demostraremos por inducción sobre i. 
+    y ahora demostraremos por inducción sobre i el enunciado.
 
     \begin{itemize}
         \item Caso base i=0, evidente para cualquier j. 
-        \item Hipótesis de inducción, supongamos cierto para  $1\leq i < m-1$ y veamo que se cumple para el caso $i+1$. 
+        \item Hipótesis de inducción, supongamos cierto para  $1\leq i < m-2$ y veamos que se cumple para el caso $i+1$. 
         
-        $b^{i+1} a^{j} =  b (b^i a^j) = (b a^j) b^{i k^j} = a^j b^{k^j} b^{i k^j} = a^j b^{(i+1) k^j}$
+        $$b^{i+1} a^{j} =  b (b^i a^j) = (b a^j) b^{i k^j} = a^j b^{k^j} b^{i k^j} = a^j b^{(i+1) k^j}$$
         Donde para la primera igualadas se ha usado la prompiedad asociativa, para la segunda la hipótesisi de inducción, para la tercera el apartado 2 
         de este mismo ejercicio y finalmente otra vez la propiedad asociativa. 
 
-        Como el j era arbitrario hemos probado lo que queríamos. 
+        Como el j era arbitrario hemos probado lo buscado. 
     \end{itemize}
 
 
     % APARTADO 4 _______________
-    \item \textbf{Demostrar que todo elemento de $<a,b>$ puede escribirse como $a^rb^a$ con $0 \leq s <m$ $0 \leq r <n$.}
+    \item \textbf{Demostrar que todo elemento de $<a,b>$ puede escribirse como $a^rb^s$ con $0 \leq r <n,$ $0 \leq s <m.$}
     
-    Esto es consecuencia directa del apartado anterior y la definición de grupo generado, ya que todo elemento tendrá la forma $a^{z_0} b^{z_1}a*{z_2}...$ con 
-    los exponenetes enteros. Por tanto utilizando el apartado 3 podremos quedarno con que  $a^{z_0} b^{z_1}a*{z_2}... = a^x b^y$ con x,y enteros. 
+    Esto es consecuencia directa del apartado anterior y la definición de grupo generado.
+    Todo elemento tendrá la forma $a^{z_0} b^{z_1}a^{z_2}...$ con 
+    los exponenetes enteros. 
+    
+    Por tanto utilizando el apartado 3 repetidas veces podremos quedarnos con que  $a^{z_0} b^{z_1}a^{z_2}... = a^x b^y$ con x,y enteros. 
 
-    Y como sea cual sera x e y podemos expresarlos como $ x = pn r, y = qm +s $
-    Usando las hipótesisi iniciales probamos con ello lo que queríamos. 
+    Y como sea cual sera x e y podemos expresarlos como $x = pn + r, y = qm +s.$
+    Usando las hipótesisis iniciales  y que $a^{pn} = 1 = b^{qm}.$
 
+    $$a^x b^y = a^{pn + r} b^{qm + s} = a^r b^s$$
+Concluyendo con esto la demostración. 
+    
+    
 
 \end{enumerate}
 \newpage
@@ -106,11 +121,13 @@ Demostrar que un subconjunto no vacío $X \subseteq G$ de un grupo $G$ es un sub
 
 
 \textbf{Condición suficiente}
-Si $y \in <X>$ entonces tendrá la forma de producto de elementos de $X$ (definición de grupo generado),
- como $X$ es subgrupo entonces será cerrado para el producto y tenemo por tanto que $X = <X>$.
 
- \textbf{Condición necesaria}
-Para cualesquiera $a,b \in X$ se tiene que $ab^{-1} \in <X> = X$ (por hipótesis) entonces acabamos de probar
+$X \subseteq <X>$ y además, sea cual sea $y \in <X>$, éste tendrá la forma de producto de elementos de $X$ (definición de grupo generado),
+ como $X$ es subgrupo entonces será cerrado para el producto y tenemos por tanto que $X = <X>$.
+
+ \textbf{Condición necesaria}  
+
+Por ser un grupo generado, para cualesquiera $a,b \in X$ se tiene que $ab^{-1} \in <X>$ Como por hipótesis $<X> = X$ acabamos de probar
 que $X$ es subgrupo. 
 \newpage
 
@@ -137,8 +154,8 @@ que $X$ es subgrupo.
 
     \underline{Para $[G:H]=1$ sii $H=G$.}
     \begin{itemize}
-    \item \textbf{Condición necesaria}. Como  $H \leq G$ y por el teorema de lagrange $|H| = |G|$ entonces   $H=G$.
-    \item\textbf{Condición suficiente}. Si $H=G$ entonces $|H| = |G|$ y por el teorema de lagrangre no nos queda más que $[G:H]=1$, 
+    \item \textbf{Condición necesaria}. Como  $H \leq G$ y por el teorema de lagrange $|H| = |G|$ entonces $H=G$ (Un subgrupo con la misma cardina que el grupo es el propio grupo).
+    \item\textbf{Condición suficiente}. Si $H=G$ entonces $|H| = |G|$ y por el teorema de lagrange no nos queda más que $[G:H]=1$, 
     como queriamos probar. 
 \end{itemize}   
     \begin{micaja}
@@ -219,15 +236,105 @@ Probando con ello lo que buscábamos.
 \begin{micaja}
     Sea G un grupo, $a,b \in G$. 
     \begin{enumerate}
-\item  Demuestra que el elemento $b$ y su conjugado $aba^1$ tienen el mismo orden.  
+\item  Demuestra que el elemento $b$ y su conjugado $aba^{-1}$ tienen el mismo orden.  
 \item Desmostra que o(ba) = o(ab).
     \end{enumerate}
 \end{micaja}
 
-$$(aba^{-1})^r = a b^r a^{-1} = 1  \Longleftrightarrow b^r = 1$$. 
-Por tanto si r es el orden de alguno de ellos también lo será ara el otro.
+\textbf{Apartado primero}  
+$$(aba^{-1})^r = a b^r a^{-1} = 1  \Longleftrightarrow b^r = 1.$$ 
+Por tanto si r es el orden de alguno de ellos también lo será de su conjugado.
+
+
+
+Visto lo mismo de manera detallada:
+
+Sea $n=ord(b) \Longrightarrow (b)^n = 1 \Longrightarrow 1 = a(b)^na^{-1} = (aba^{-1})^n$ 
+
+Veamos ahora que n es el natural más pequeño que cumple que $(aba^{-1})^n = 1$
+
+Supongamos que existe $0<m<n$ que cumple que $(aba^{-1})^m  = 1$ entonces 
+$1 = a(b)^ma^{-1}$ y por tanto $1 = a^{-1}1a = a^{-1}a(b)^ma^{-1}a = (b)^m.$ 
+Lo cual es una contradicción ya que $ord(b)=n$.
+Con esto se ha demostrado que si $ord(b)=n\Longrightarrow n = ord(ab^{a^{-1}})$
+
+La otra implicación: 
+
+Sea $n=ord(aba^{-1})$ entonces n será el menor natural que cumple que $1 = (aba^{-1})^n = ab^na^{-1}.$
+Desarrollando $1 = a^{-1}1a = a^{-1}a(b)^na^{-1}a = (b)^n,$ y por tanto n será el menor natural que cumple la igualdad. 
+
+\textbf{Apartado segundo}
+
+Por hipótesis $a,b \in G$, un grupo; entonces $a^{-1},ab \in G$. Por el primer apartado sabemos además que
+ $$ord(ab)=ord(a^{-1}ab(a^{-1})^{-1}) = ord(a^{-1}aba ) = ard(ba)$$
+ Demostrando con ello el segundo apartado. 
+
+
+\newpage
+
+
+\section[Ejercicio 27]{Ejercicio 27}
+
+\begin{micaja}
+    i) Describir los subgrupos del retículo del grupo V de Klein. 
+\end{micaja}  
+
+Recordemos que $\mathcal V = \mu_2 \times \mu_2$ o con otra caraterización 
+$\mathcal V = \{ 1,a,b,ab : a^2 = 1 = b^2, ab=ba\}$
+
+Por tanto $|\mathcal V|=4$ y el teorema de lagrange nos aseguro que todos sus subgrupos tendrán cardinalidad
+divisor de 4. 
+
+Disquisición de subgrupos: 
+\begin{enumerate}
+         \item De tamaño 1 (subgrupo impropio): 1 y no puede haber otro porque sería la identidad. 
+         \item De tamaño 2: Por la segunda definición vemos que tienen tres ciclos de orden 2. 
+         $<(-1,1)> = a$, $b = <(1,-1)>$ y $ab =<(-1,-1)>$ ya que $(ab)^2 = abba= a1a = 1.$
+         \item De tamaño 4: Subgrupo impropio  $\mathcal V$
+    
+\end{enumerate}
+    
+
+\begin{tikzcd}
+    & \mathcal V  & \\
+<(1,-1)> \arrow{ur} & <(-1,-1)> \arrow{u} & <(-1,1)> \arrow{ul}\\
+& <(1,1)> \arrow{ul} \arrow{u} \arrow{ur} &
+\end{tikzcd}
+
+
+\begin{micaja}
+    iv) Describir los subgrupos del retículo del grupo $Q_2$ de Cuarterniones. 
+\end{micaja}  
+
+Una de las caraterizaciones de este subgrupo es: 
+
+$Q_2 = \{ 1,-1,i,-i,j,-j, k, -k \}$ tal que se cumplen las siguientes propiedades
+$i^2 = j^2 = k^2 = ijk = -1$.
+
+$|Q_2|=8$ Por el teorema de lagrange tenemos la siguiente disquisición de  posibles subgrupos:
+
+\begin{itemize}
+    \item De tamaño 1: Subgrupo impropio \{1\}.
+    \item Tamaño 2: El único ciclo tamaño 2: $<-1>$. No hay subgrupo 
+    generados por dos elementos, ya que necesariamente uno debería ser la identidad.
+    \item Tamaño 4: Son los grupos cíclicos  
+    $$<i>=\{i,-1,-i, 1\}; <j> = \{ j,-1,-j, 1\}; <k>=\{ k,-1,-k,1\};$$
+    No hay ningún otro grupo, ya que tendría que ser generado por mínimo dos elementos,
+    como 1 y -1 pertenecen a todos los subgrupos cíclicos de tamaño 4, por tanto los elementos 
+    generadores deberían ser i,j o k y como mínimo
+    contendría a dos de los subgrupos cícliclos.
+    \item  Tamaño 8: subgrupo impropio $Q_2$ 
+\end{itemize}
+
+Por tanto el retículo quedaría: 
+
+\begin{tikzcd}
+    & Q_2 & \\
+    <i> \arrow{ur} & <j> \arrow{u} & <k> \arrow{ul}\\
+    & <-1> \arrow{ul} \arrow{u} \arrow{ur} & \\
+    & \{1\} \arrow{u} &    
+\end{tikzcd}
+
 
 
 \end{document}
-
-
