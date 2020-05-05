@@ -1,3 +1,6 @@
+*.log
+*.fls*
+*.toc*
 *~
 *.gz
 dist

@@ -1,0 +1,124 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath} 
+\usepackage{amssymb} % utlizar mathbb
+
+
+\newenvironment{micaja}
+{
+    \begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }   
+    {   
+    \\\\\hline
+    \end{tabular} 
+    \end{center}
+    }
+
+
+
+\title{Ejercicios tema 4. \\
+Grupos cociente. Teoremas de isomorfismo.Productos.}
+\author{Blanca Cano Camarero}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\tableofcontents
+\end{titlepage}
+
+\section{Ejercicio 10}
+
+\begin{micaja}
+    Sean $H$,$K$ dos subgrupos finitos del grupo $G$, uno de ello, $H$ normal. Demostrar que 
+    $$|H||K| = |HK||H \cap K|$$
+\end{micaja}
+
+Por el tercer teorema de isomorfía sabemos que 
+$$\frac{K}{H \cap K} \cong \frac{KH}{H}$$
+de lo que deducimos que el respectivo número de clases laterales el mismo, es decir que 
+$$[K: H \cap K] = \left|\frac{K}{H \cap K} \right| =  \left| \frac{KH}{H} \right| = [KH:H].$$
+
+Además por el teorema de Lagrange sabemos que: 
+
+$|K| = [K: H \cap K] |H \cap K|$ y que $|HK| = [KH:H]|H|$
+
+Por tanto, combinando estas igualdades, podemos desmejar la igualdad que se nos pedía demostrar. 
+
+$$\frac{|K|}{|H \cap K|} = \frac{|HK|}{|H|}$$
+
+\newpage
+
+\section{Ejercicio 11}
+
+\begin{micaja}
+    sea $N \trianglelefteq G.$ Probar que $G/N \cong G$ si y solo si $N=\{1\}.$\\
+     Probar que $G/N \cong \{1\}$ si y solo si $N=G$
+\end{micaja}
+\subsection*{Condiciones suficientes}
+Gracias al teorema de lagrage sabemos que $|G| = |G/N||N|$
+Como  por hipótesis  $G/N \cong G$ entonces $|G/N| = |G|$. 
+De estas dos igualdades anteroriores deducimos que: $|N|=1$ y 
+como la unidad pertenece por ser subgrupo no queda más remedio que $N=\{1\}.$
+
+Si por el contrario, nuestra hipótesis fuera $G/N \cong \{1\}$ entonces $|N| = |G|$, 
+y el único subgrupo  de $G$ que tiene la misma cardinalidad es él mismo, es decir $N=G.$
+
+\subsection*{Condiciones necesarias}
+
+
+
+\newpage
+
+\section{Ejercicio 23. }
+\begin{micaja}
+Sean G, H y K grupos. 
+Demostrar que: 
+$$H \times K \cong K \times H.$$  
+$$G \times (H \times K) \cong (G \times H) \times K.$$
+\end{micaja}
+
+\subsubsection*{Primer isomorfismo}
+
+Definamos $f: H \times K  \rightarrow K \times H, $ de la forma $f(h,k) = (k,h).$
+Veamos que esto es un isomorfismo: 
+
+\begin{itemize}
+    \item Epimorfismo: Sean $(k_1,h_1), (k_2,h_2) \in K \times H$ 
+    tales que $f^{-1}(k_1,h_1)=f^{-1}(k_2,h_2)$ entonces por cómo se ha definido la aplicación
+    se tiene que $(k_1,h_1)=(k_2,h_2).$
+    \item Monomorfismo: $f^*(1,1) = \{(1,1)\}$. 
+
+\end{itemize}
+
+\subsubsection*{Segundo isomorfismo}.
+
+No consigo entender qué hay que probar ¿no es evidente por cómo se define
+el producto directo que $G \times H \times K \cong G  \times (H \times K) \cong (G \times H) \times K.$?
+
+
+\newpage
+
+\section{Ejercicio 26}
+\begin{micaja}
+
+    No todo subgrupo de un grupo directo es producto directo de subgrupos.
+\end{micaja}   
+
+Ejemplo dado el grupo $(\mathbb Z_2, \times),$ para $\mathbb Z_2 \times \mathbb Z_2$ se tiene que $<(1,1)>= \{(0,0),(1,1)\}$
+no es ningún subgrupo generado por subgrupos de $\mathbb Z_2,$ ya que 
+estos son: 
+\begin{center}
+    \begin{tabular}{c c l}
+$\{0\} \times \{0\}$ & = &$ \{(0,0)\}$ \\
+$\{0\} \times \mathbb Z_2$ & = &$ \{(0,0),(0,1)\}$ \\
+$\mathbb{Z}_2 \times \{0\}$ & = &$ \{(0,0),(1,0)\}$ \\
+$\mathbb{Z}_2 \times \{0\}$ & = &$ \{(0,0),(1,0),(0,1)(1,1)\}$    
+    \end{tabular}
+\end{center}
+
+El recíproco sí es cierto.
+\end{document}
