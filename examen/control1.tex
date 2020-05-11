@@ -574,17 +574,7 @@ para todo $a \in G$ se tendrá que $aH = Ha$
 
 \subsubsection*{f es un homomorfismo de grupos}
 
-Para que sea homomorfismo debe cumplir 
-\begin{enumerate}
-    \item \textbf{ La aplicación f lleva elementos neutros en elementos neutros}.
-    El elemento neutro de $G$ es la matriz identidad la cual todas sus entradas
-    menos la diagonal son ceros. 
-
-    El elemento neutro de $(R,+)$ es el $0.$
-
-    Y por último tenemos que $f(Id) = 0+0 = 0.$
-
-    \item Por último habría que ver que $f(AB) = f(A)f(B)$ 
+Para que sea homomorfismo debe cumplir que $f(AB) = f(A)f(B)$ 
     para cualesquiera matrices $A,B \in G.$
 
     \begin{equation*}
@@ -621,7 +611,6 @@ Para que sea homomorfismo debe cumplir
     \end{equation*}
     
     Ambas expresiones son iguales por tanto es un homomorfismo. 
-\end{enumerate}
 
 \subsubsection*{Núcleo de f}
 
@@ -664,5 +653,184 @@ Ya que $Img(f) = \mathbb R$
     Demostad que $f$ es un homomorfismos 
     inyectivo de grupos y que su imagen está contenida en $A_6.$
 \end{micaja}
+
+\subsubsection*{Es homomorfismo}
+
+Para que sea homomorfismo debe cumplir que $f(ab) = f(a)f(b)$, para cualesquiera $a,b \in S_4.$
+
+Distinguiremos los siguientes casos: 
+
+\begin{itemize}
+    \item $a,b \in S_4$ pares, entonces $ab$ es par y por tanto $f(a)f(b)=ab = f(ab).$
+    \item $a,b \in S_4$ impares ambos, entonces $ab$ es par y por tanto $f(a)f(b)=a(56)b(56).$
+    Como $b \ in S_4$ no contendrá ni al 5 ni al 6 y será disjunto con $(56)$ por tanto podemos comutarlo
+    (solo con ese, no con a.) $a(56)b(56) = ab(56)(56) = ab = f(ab)$ por ser $ab$ par.
+    \item $a,b \in S_4$ con $a$ impar y $b$ par: $f(a)f(b) = a(56)b$ y aplicando de nuevo que $(56),b$ son
+    disjuntos podemos conmutarlos:$a(56)b = ab(56) = f(ab)$ por ser $ab$ impar.
+    \item $a,b \in S_4$ con $b$ impar y $a$ par:$f(a)f(b)= ab(56) = f(ab)$ ya que $ab$ es impar. 
+\end{itemize}
+
+\subsubsection*{Inyectividad de f}
+
+Sean $a,b \in S_4$ tales que $f(a) = f(b).$ 
+vamos a ver que necesariamente $a=b.$
+
+\begin{equation*}
+    id = f(a)f^{-1}(b) = f(a)f(b^-1) = f(ab^{-1})
+\end{equation*}
+Donde hemos utilizado que $f$ es un homomorfismo y ahora por cómo se ha construido $f$, 
+llegamos a la igualdad $id = ab^{-1}$ de la que concluimos que $a = b$ como queriamos probar. 
+
+\subsubsection*{Imgen de $f$ contenida en $A_6$}
+El grupo alterado $An$ se define como las permutaciones pares de $Sn,$ veamos pues que 
+la imagen de $f$ está formada por permutaciones pares. 
+
+
+Para ello distinguiremos dos casos, ya que toda permutación es par o impar.
+\begin{itemize}
+    \item $a \in S_4$ par, luego $f(a) = a$ que será par. 
+    \item $a \in S_4$ impar, luego $f(a) = a(56)$ que es composición de dos impares, luego será par.
+\end{itemize}
+
+\subsection{Apartado tercero}
+
+\begin{micaja}
+    
+    Sea $K$ un cuerpo de $SL(K) = \{ A \in GL_n(K)/ det(A)=1\}, n \geq 2.$
+
+    Demostrad que $SL_n(K)$ es un subgrupo normal de $GL_n(K).$ ¿Quién es el grupo cociente
+    $GL_n/SL_n(K)$?
+
+    Si $K$ es un cuerpo finito con $q$ elementos, determinad los órdenes de estos dos grupos, 
+    esto es, $|GL_n(K)|$ y $|SL_n(K)|.$
+\end{micaja}
+
+\subsubsection*{$SL_n(K)$ es un subgrupo de $GL_n(K)$}
+
+Sean cuales quiera $A,B \in SL_n(K)$, decir que el determinantes de ambos es 1. 
+Por las propiedades de los determinantes: 
+$det(A B{-1}) = det(A) frac{1}{det(B)} = 1$ luego  $AB^{-1} \in SL_n(K)$
+y por tanto es un subgrupo. 
+
+\subsubsection*{Normalidad}
+Habremos probado que $SL_n(K)$ es un subgrupo normal de $GL_n(K)$ si para toda
+$m \in GL_n(K)$, se tiene que $m SL_n(K) m^{-1} \leq SL_n(K),$ o lo que es lo mismo 
+que $\{m s m^{-1} | s \in SL_n(K) \} \leq SL_n(K).$
+
+Y esto es cierto por las propiedades de los determinantes y por
+ estar $s$ en $SL_n(K)$ (ya que $det(s)=1$  ). Veámoslo: 
+
+$det(m s m^{-1}) = det(m) det(s) \frac{1}{det(m)} = det(s) = 1.$
+
+por tanto $msm{-1} \in SL_n(K).$
+
+y es un subgrupo normal. 
+
+Otra forma de verlo, más rápida que la anterior es darse cuenta 
+que la definición dada de $SL(K)$ se corresponde 
+con la del núcleo del determinante y esto es siempre un subgrupo normal. 
+
+\subsubsection*{Caracterización del grupo cociente}
+Vista la observación anterior y gracias al primer teorema de isomorfía tenemos que
+
+\begin{equation}
+    \frac{GL_n(K)}{SL_(K)} \cong det_*(GL_n(K)) = K^\times
+\end{equation}
+
+Nótose que no es isomofro a $K$ ya que $GL_n(K)$ son las matrices invertibles
+con entradas en $K$,
+es decir su determinante no puede ser nulo. 
+
+\subsubsection*{Órdenes para $K$ finito de $q$ elementos.}
+
+Por la caracterización del grupo cociente (2) y por ser 
+$K$ un cuerpo fininto de $q$ elementos tenemos que: 
+
+\begin{equation}
+    |GL_n(K)| = (q-1) |SL_n(K)|
+\end{equation}
+
+Si hay $q$ elementos y las matrices son de $n \times n.$
+Se tendrá que cada fila admite $q^n$ combinaciones, pero tenemos que tener en cuenta:
+\begin{itemize}
+    \item Que la primera no puede ser nula, lo cual nos deja $q^n -1$ posibilidades.
+    \item Que la fila $m+1 \leq n$ no puede ser combinación lineal de las $m$ anteriores, 
+    es decir que admite $q^{n}-q^{m}$
+\end{itemize}
+
+De lo que se deduce que: 
+\begin{equation*}
+    |GL_n(K)| = \prod_{i=0}^{n-1} (q^n - q^i)
+\end{equation*}
+
+y por (3) que si $q>1$:
+\begin{equation*}
+    |SL_n(K)| = \frac{1}{q-1}\prod_{i=0}^{n-1} (q^n - q^i)
+\end{equation*}
+
+El caso $q = 1$ no se puede dar ya que $n \geq 2$ y toda matriz con todas sus entradas iguales
+tienen determinante 0 y no son invertibles, es decir $GL_n(k) = \emptyset.$
+
+Esto nos sugiere además que para que la ecuaciones sean válidas, $q \leq 2$, ya que la matriz
+identidad de $GL_n(k)$ tienen dos elementos y es siempre invertible. 
+
+
+
+\newpage
+
+\section{Ejercicio 4}
+
+\subsection{Apartado primero}
+
+\begin{micaja}
+    Sean $A,B,C$ subgrupos de un grupo $G$ con $B \trianglelefteq A.$
+
+    Demostrad que $B \cap C \trianglelefteq A  \cap C$ y que 
+
+    \begin{equation*}
+        \frac{A \cap C}{B \cap C} \cong \frac{B(A \cap C)}{B}
+    \end{equation*}
+   
+\end{micaja}
+
+
+\subsubsection*{$B \cap C$ es subgrupo de  $A  \cap C$ }
+
+Por la caracterización de subgrupo
+tenemo que comprobar que para cualquier $a,b \in B \cap C$ se cumple que 
+$ab^{-1} \in B \cap C.$
+
+Sean $a,b \in B \cap C$ o equivalentemente dos elemento que cumplen que
+ $a,b \in B$ y $  a,b \in C$ donde $B,C$ son ambos sumbgrupos, 
+ y por tanto deducimos que $ab^{-1} \in B$ y $ab^{-1} \in C$, es 
+ decir que $ab^{-1} \in B \cap C$
+
+Por hipótesis sabemos además que $B \trianglelefteq A$ luego si 
+$ab^{-1} \in B$ también se tendrá que $ab^{-1} \in A;$ y como ya habíamos visto 
+antes
+que $ab^{-1} \in C$ entonces $ab^{-1} \in A  \cap C;$ probando con ello lo que 
+buscábamos, que $B \cap C$ es subgrupo de  $A  \cap C.$
+
+
+\subsection*{$B \cap C$ es subgrupo normal de  $A  \cap C$}
+
+\begin{micaja}
+\begin{equation*}
+    \frac{A \cap C}{B \cap C} \cong \frac{B(A \cap C)}{B}
+\end{equation*}
+\end{micaja}
+
+
+\begin{micaja}
+    Si además $C \trianglelefteq G,$ demostrad que $BC \trianglelefteq AC$ y 
+
+    \begin{equation*}
+        \frac{AC}{AC} \cong \frac{A}{A \cap (BC).}
+    \end{equation*}
+\end{micaja}
+    
+
+\subsection{Apartado segundo}
+
 
 \end{document}
