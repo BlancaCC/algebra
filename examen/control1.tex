@@ -43,18 +43,27 @@ En el grupo simétrico $S_8$ se consideran los elementos
 \end{micaja}
 
  \subsubsection*{Descomposición como ciclos disjuntos}
- Toda permutación se puede expresar de forma única (salvo el orden) de ciclos disjuntos, es este caso:
+ Toda permutación se puede expresar de forma única (salvo reordenaciones) en ciclos disjuntos, es este caso:
  
 $\beta = (1 3) (2 5 8) (4 7 6)$
 \subsubsection*{Descomposición en productos de transposiciones}
-Todo ciclo se puede expresar como producto de transposiciones, que no necesariamente tiene porqué ser único (aunque sí siempre de la misma paridad). Para este caso tenemos que:
+Todo ciclo se puede expresar como producto de transposiciones, que no necesariamente tiene porqué ser único (aunque sí siempre de la misma paridad).
+ Para este caso tenemos que:
+Es más cualquier ciclo de la forma $(x_0 x_1...x_r)$ se puede expresar como producto de 
+trasposiciones $(x_0 x_1...x_r) = (x_0 x_1)(x_1 x_2)...(x_{r-1}x_r)$
+por lo que podríamos expresar 
 
-$\beta = (1 3) (5 8) (2 8) (6 7)(4 6)$
+$$\beta = (1 3)(2 5)(5 8) (4 7)(7 6)$$
+
+Otras posibilidades serían: 
+
+$\beta = (1 3) (5 8) (2 8) (6 7)(4 6)$ y
 $\beta = (3 4)(1 4) (5 8) (2 8) (6 7) (3 6) (3 4)$
 
 \subsubsection*{Orden de $\beta$}
 
-El orden de una permutación es el mínimo común múltiplo de las longitudes que de los ciclos disjuntos que lo componen, en este caso sería $mcm(2,3,3)=6.$
+El orden de una permutación es el mínimo común múltiplo de las longitudes que 
+de los ciclos disjuntos que lo componen, en este caso sería $mcm(2,3,3)=6.$
 
 El orden de $\beta$ es 6.
 
@@ -62,7 +71,8 @@ El orden de $\beta$ es 6.
 
 La signatura, signo o paridad de una permutación $s$ es $\sigma(s) = (-1)^n$ donde $n$ es el número de tranposiciones con el que se puede expresar.
 
-Por el teorema anterior sabemos que éste es indiferente de la expresión  que tomemos, ya que la paridad del número de transposiciones de mantiene.
+Por el teorema anterior sabemos que éste es indiferente de la expresión  que tomemos, ya que la 
+paridad del número de transposiciones se mantiene.
 
 En este caso $n=5$ y por tanto $\sigma(\beta) = (-1).$
 
@@ -70,25 +80,41 @@ En este caso $n=5$ y por tanto $\sigma(\beta) = (-1).$
 \begin{micaja}
 Hallad un elemento $\alpha  \in S_8$ tal que $\beta = \alpha \pi \alpha^{-1}.$
 \end{micaja}
-Para esto utilizaremos la siguiente proposición que caracteriza a los conjugados: $\beta (x_0 ... x_r) \beta^{-1} = ( \beta (x_0)... \beta(x_r))$
+De manera general se puede caracterizar a los conjugados de la siguiente manera:
+$\gamma$ una transposición cualquiera y $(x_0 ... x_r)$ un ciclo: 
 
-Por tanto nuestro $\alpha$ buscado cumple la siguiente propiedad:
+$$\gamma (x_0 ... x_r) \gamma^{-1} = ( \gamma (x_0)... \gamma(x_r))$$
 
-Para todo $x \in \{1..8\}$ se tiene que $\alpha \pi (x) = \beta(x);$ de lo que deducimos que si $\pi(x)=y$ entonces $\alpha(y) = \beta(x).$
+Para nuestro caso el $\alpha$ buscado debe cumplir pues que: \paragraph{}
+\begin{equation*}   
+\alpha \pi \alpha^{-1} = \alpha (145)(283)(67) \alpha^{-1} 
+= \alpha (145)\alpha^{-1}\alpha(283)\alpha^{-1}\alpha(67)\alpha^{-1}
+\end{equation*}
+\begin{equation*}   
+= (\alpha(1) \alpha(4)\alpha(5))(\alpha(2)\alpha(8)\alpha(3))(\alpha(6)\alpha(7))
+= \beta =  (1 3) (2 5 8) (4 7 6)
+\end{equation*}
 
-Veamos nuestro caso concreto:
-\begin{itemize}
-\item $\beta(1) = 3$ y $\pi(1)=4$ entontes $\alpha(4)=3$
-\item $\beta(2) = 5$ y $\pi(2)=8$ entontes $\alpha(8)=5$
-\item $\beta(3) = 1$ y $\pi(3)=2$ entontes $\alpha(2)=1$
-\item $\beta(4) = 7$ y $\pi(4)=5$ entontes $\alpha(5)=7$
-\item $\beta(5) = 8$ y $\pi(5)=1$ entontes $\alpha(1)=8$
-\item $\beta(6) = 4$ y $\pi(6)=7$ entontes $\alpha(7)=4$
-\item $\beta(7) = 6$ y $\pi(7)=6$ entontes $\alpha(6)=6$
-\item $\beta(8) = 2$ y $\pi(8)=3$ entontes $\alpha(3)=2$
-\end{itemize}
+Por lo que necesariamente: $(\alpha(6)\alpha(7)) = (1 3)$ es decir que se podría tener que
+$\alpha(6)=1, \alpha(7) = 3$ o $\alpha(6)=3, \alpha(7) = 1$.
+\paragraph{}
+Para los siguientes ciclos podriamos tener que \paragraph{}
 
-Esto es $\alpha = (1 8 5 7 4 3 2)$
+$(\alpha(2)\alpha(8)\alpha(3)) = (2 5 8); (\alpha(1) \alpha(4)\alpha(5)) = (4 7 6)$
+o que 
+$(\alpha(2)\alpha(8)\alpha(3)) = (4 7 6); (\alpha(1) \alpha(4)\alpha(5)) = (2 5 8)$
+
+Por lo que una solución (de las múltiples posibles sería):
+
+
+$\alpha(6)=1, \alpha(7) = 3$; 
+
+$\alpha(2) = 2, \alpha(8)=5,\alpha(3)=8$
+
+$\alpha(1)=4, \alpha(4)=7\alpha(5)=6)$
+\paragraph{}
+Luego un $\alpha = (1473856)$
+
 
 \subsection{Apartado tercero}
 \begin{micaja}
@@ -105,65 +131,80 @@ $$r s r^{-1} =r s_0 s_1 ...  s_m r^{-1} = (r s_0 r^{-1}) (r s_1 r^{-1}) ... (r s
 
 Por consiguiente, para nuestro caso cada permutación obenida tendrá tres ciclos disjuntos, dos de ello de longitud 3 y uno de longitud 2. 
 
-\paragraph{}
-BORRAR ESTO
-Ahora ya podemos aplicar la caracterización del conjugado para cada $r s_i r^{-1}$ con $i \in \{0..m\}.$ y es más si
- $s_i = (x_0^i... x_{w_i}^i)$ entonces sabemos que $(r(x_0^i)... r(x_{w_i}^i)$ deben de formar un ciclo disjunto, del resto, 
-ya que de otra forma la aplicación no estaría bien definida. 
-
 \subsubsection*{Cardinalidad.}
 
-REDACTAR MEJOR, NO SE ENTIENDE BIEN \paragraph{}
+El número de permutaciones posibles, las podemos ver gracias a la división en ciclos disjuntos anterior 
+y la biyectividad de las permutaciones, es decir todas serán de la forma
 
-Número de permutaciones posibles, las podemos ver gracias a la división en ciclos disjuntos anterior y la biyectividad de las permutaciones: 
-será de la forma $(x_0 x_1)( x_2 x_3 x_4)(x_5 x_6 x_7)$ con $x_i \neq x_j$ si $i \neq j$ 
+$$(x_0 x_1)( x_2 x_3 x_4)(x_5 x_6 x_7) \text{ con } x_i \neq x_j \text{ si } i \neq j$$
 
-Para el ciclo $(x_0 x_1)$ de dos elementos tenemos $\frac{8!}{(8-2)!}$, lo cual nos deja todavía $8-2$ elementos 
-por combinar, para los dos ciclos de tres disjuntos será $\frac{6!}{3!}\frac{3!}{0!}$, pero le tenemos que quitar la mitatad de estos casos
-ya que la composición de ciclos disjuntos es conmutativa y tendríamos la misma permutación para 
+Para el ciclo $(x_0 x_1)$ de dos elementos tenemos combinación de 8 elementos cogidos de 2 en dos sin repetición y
+sin importar el orden.
+$\frac{8!}{(8-2)!}=28$, 
+que nos deja todavía $8-2$ elementos
+por combinar en los dos ciclos de longitud tres disjuntos, esto será 
+(ahora si importa el orden, quitaremos los casos repetidos luego):
+ $$\frac{6!}{3!} $$
 
-Por tanto el número total de casos son: $\frac{8!}{6!}\frac{1}{2}(\frac{6!}{3!}\frac{3!}{0!}) = \frac{8!}{2}.$
+ Pero cada ciclo se puede representar de tres formas distintas, luego habrá que quedarnos
+ con un tercio de los casos. 
+El siguiente ciclo vendrá impuesto por los 3 elementos, y razonando igual que en el anterior 
+
+ serán $\frac{3!}{3}=2$
+
+ Por tanto los ciclos de orden dos (quitando la mitad por conmutatividad) serán $\frac{6!}{3!}$
+ Pero le tenemos que quitar la mitad de estos casos ya que por la propiedad conmutativa, para estos
+ ciclos de orden 2,
+ya que la composición de ciclos disjuntos es conmutativa.
+
+Por tanto el número total de casos son: 
+$$\frac{1}{2}\frac{8!}{6!}\frac{1}{2}\frac{1}{3}\frac{6!}{3!} = \frac{8!}{6 3!} = 1120.$$
 Ahora bien, estas son todas las posibles, pero ¿podemos obtenerlas todas?
+
+
 La respuesta a esta pregunta es afirmativa, y la demostración es constructiva, siguiendo 
-la misma idea del apartado segundo. 
+la misma idea del apartado anterior. 
 
-Veámoslo: 
-
-
-Sea $\beta = (x_0 x_1)( x_2 x_3 x_4)(x_5 x_6 x_7)$ con $x_i \neq x_j$ si $i \neq j$ y queremos ver que existe $\alpha$
-una permutación que cumple que $\beta = \alpha \pi \alpha^{-1}$, 
-puesta está definida de manera única para cada elemento.
+Sea una permutación $\beta \in S_8$ de la forma$\beta = (x_0 x_1)( x_2 x_3 x_4)(x_5 x_6 x_7)$ con $x_i \neq x_j$ si $i \neq j$ 
+ para ella siempre existirá algún $\alpha \in S_8$ que 
+cumpla que $\beta = \alpha \pi \alpha^{-1}$.
 
 
 
-
-
-\subsection{Apartado tercero}
+\subsection{Apartado cuarto}
 
 \begin{micaja}
     ¿Es el grupo generado por $\beta$ un subgrupo normal de $S_8$?
 \end{micaja}
 
-EMPEZAR POR EL CASO GENERAL DEL SEGUNDO PÁRRAFO \paragraph{}
 
 Por la caracterización de normalidad esto se dará si para cualquier $s \in S_8$
-$s <\beta> s^{-1} = <\beta>.$ esto es, que para cualesquiera $b \in <\beta>, s \in S_8$ va a existir 
+$s <\beta> s^{-1} = <\beta>;$ o equivalentemente que para cualesquiera $b \in <\beta>, s \in S_8$ va a existir 
 un $c_{b,s} \in <\beta>$  que cumple que $s bs^{-1} = c_{b,s}.$
+\paragraph{}
+Ahora bien, 
+\begin{equation*}
+\begin{split}
+<\beta> = \{ &id,\beta = (1 3) (2 5 8) (4 7 6), \beta ^2 =(2 8 5)(4 6 2), \\
+ & \beta ^3 =(1 3), \beta ^4 = (2 5 8) (4 7 6),  \\
+& \beta^5 = (1 3)(2 8 5)(4 6 2)\}
+\end{split}
+\end{equation*}
 
-Ahora bien $<\beta> = \{id,\beta = (1 3) (2 5 8) (4 7 6), \beta ^2 =(2 8 5)(4 6 2), \beta ^3 =(1 3), \beta ^4 = (2 5 8) (4 7 6), beta^5 = (1 3)(2 8 5)(4 6 2)\}$
-y seleccionamos una permutación que no esté en $<\beta>$ y que tenga el mismo número de ciclos disjuntos y de la misma logitud (la caracterización del apartado dos) 
+seleccionamos una permutación que no esté en $<\beta>$ y que tenga el mismo número de ciclos disjuntos y de la misma logitud (la caracterización del apartado dos) 
 por ejemplo $\gamma = (1 2)(3 5 8)(4 7 6)$ 
 y por lo visto en el apartado anterior, sabemos que existirá algún $\alpha \in S_8$ que cumpla que $\gamma = \alpha \beta \alpha^{-1}.$
+\paragraph{}
+Y por consiguiente habremos probado que es \textbf{no es normal.}
 
-Y por consiguiente habremos probado que es no es normal. 
-
-
- De hecho acabamos de ver más, una caracterizacíon para que sea normal: 
+\paragraph{}
+ De hecho acabamos de ver más, una condición para que sea normal: 
 que no se pueda descomponer en ciclos disjuntos, es decir \textbf{que la permutación sea un ciclo}, 
 ya que supongamos que existe $\beta$ una permutación que se puede descomponer en ciclos disjuntos, 
 $\beta = b_0 b_1...b_n$, tendríamos por commutatividad que 
 $\beta ^n = b_0^n b_1^n...b_n^n$. Ahora cogemos una permutación $\gamma$ que sea idéntica a $\beta$ salgo que los dos primeros elementos
-de los ciclos disjuntos sea han intercambiado entre sí (esto es si $\beta = (x_0,x_1...)(y_0 y_1..)...(z_0,z_1...)$ entonces $\gamma =(y_0,x_1...)(x_0 y_1..)...(z_0,z_1...)$). 
+de los ciclos disjuntos sea han intercambiado entre sí (esto es si $\beta = (x_0,x_1...)(y_0 y_1..)...(z_0,z_1...)$ entonces $\gamma =(y_0,x_1...)(x_0 y_1..)...(z_0,z_1...)$,
+y por tanto no pertenecerá al grupo generado por $\beta$). 
 y por lo visto en el apartado anterior, sabemos que existirá algún $\alpha \in S_8$ que cumpla que $\gamma = \alpha \beta \alpha^{-1}.$
 
 Pero por otra parte hemos visto cómo son los elemento de $<\beta>$, así que $\gamma$ no pertenecerá. 
@@ -182,7 +223,7 @@ Pero por otra parte hemos visto cómo son los elemento de $<\beta>$, así que $\
 
 Sabemos que $D_n = <r,s | r^n = 1 = s^2 \wedge sr = r^{n-1}s>.$
 La cardinalidad de $D_n$ es $2n$ y el  teorema de Lagrange nos asegura que la cardinalidad de
-sus sugrupos será un divisor de $2n.$ Por tanto para este caso tiene sentido plantearse cuáles son los subgrupos de
+sus subgrupos será un divisor de $2n.$ Por tanto para este caso tiene sentido plantearse cuáles son los subgrupos de
 de orden 2 y 4 de $D_8.$
 
 
@@ -194,57 +235,67 @@ que no existe $n \in \mathbb Z$ tal que $x^n = y$, además como $S$ es subgrupo 
 necesariamente la cardinalidad de $S$ sería mayor de dos, ya que $x,y,1 \in S.$ \paragraph{}
 
 Veamos ahora qué condiciones deben de cumplir los elementos que generen los grupos cíclicos de orden 2: 
-
-Por cómo se ha definido $D_n$, todos sus elementos son de la forma $r^is^j$ con $i,j \in \mathbb Z.$ 
+\paragraph*{}
+Por cómo se ha definido $D_n$, todos sus elementos son de la forma $r^is^j$ con $i,j \in \mathbb Z$ 
 y si $<a>$ es de orden 2, entonces necesariamente $a^2 = 1.$
 
-Por tanto los generadores deben cumplir que $1 = (r^is^j)(r^is^j)$  que por estar en $D_n$ se tienen dos posibilidades 
-$i \equiv 1$ o $i \equiv 0;$ para el primer caso:
+Por tanto los generadores deben cumplir que $1 = (r^is^j)(r^is^j)$,por estar en $D_n$ se tienen dos posibilidades 
+$j \equiv 1$ o $j \equiv 0.$ 
+\paragraph{}
+Para el primer caso, $j \equiv 1$:
+
+
 $r^i(sr^i)s= r^i r^{i(n-1)} s^{2} = r^{i-i} r^{in} s^{2}$
 
 Donde para la primera igualdad se ha utilizado $i$ veces la caracterización de $sr = r^{n-1}s$ de $D_n$.
 
-Pero claro, también sabemos que $r^n = 1 = s^2$ y que $r^0 = 1$ por tanto si $i \equiv 1$, sea cual sea el valor de $j;$
+Pero claro, también sabemos que $r^n = 1 = s^2$ y que $r^0 = 1$ 
+por lo que llegamos a la conclusión de que si $j \equiv 1$, sea cual sea el valor de $i$
+se tendrá que 
 $r^{i-i} r^{in} s^{2j} = 1$ y todo $<r^i s>$ va a ser de orden 2. 
 
 Para el segundo caso ($j \equiv 0$)tenemos que se debe cumplir que $r^i r^i = 1$ y por otro lado sabemos que $r^n = 1$ entonces para que esto
 suceda no queda más remedio que $ 2i \equiv n.$
 
-Conclusión: Los subgrupo de orden 2 de $D_8$ son de la forma $<r^i s>$ o equivalentemente $<s r^i>$ con
-$i \in \{0..7\}$ o son el subgrupo $<r^4>.$
+\textbf{Conclusión:}
+
+Los subgrupo de orden 2 de $D_8$ son de la forma $<r^i s>$ o equivalentemente $<s r^i>$ con
+$i \in \{0..7\}$ y el subgrupo $<r^4>.$
 
 \subsubsection*{Subgrupos de orden 4}
 Por el apartado anterior los subgrupos candidatos serán o grupos cíclico $<r^i>$ con $i$ no congruente a $4$ 
-o grupos generados por $r^i, s, sr^j$ con $i \in \{1..n-1\}.$
+o grupos generados por $r^i, sr^j$ con $i \in \{1..n-1\}, j \in \{0..n-1\}.$
 
 Veamos el primer caso: 
 
 Buscamos que el orden de $<r^i>$ sea 4, entonces necesariamente $(r^i)^4 = 1$ y eso equivale a que $4i \equiv 1.$
 
-Segundo caso $<r^i, s>.$
-Como $n>2$ en $D_n$ entonces $r^i s \neq r^{i(n-1)} s$ y además ambos distintos del $1.$ 
-Está claro pues que $1,r^i,s,r^i s,$ pertenecen a $S = <r^i,s>.$ 
+Segundo caso, $<r^i, r^js>:$
+
+
+Como $n>2$ en $D_n$ entonces por lo general $r^i s \neq r^{i(n-1)} s$ y además ambos distintos del $1.$ 
+Está claro pues que $1,r^i,r^js,r^{i+j} s,$ pertenecen a $S = <r^i,r^js>.$ 
+
 Y a demás por estar en $D_8$ necesariamente $i=4$  ya que debe de cumplirse que $s r^i= r^{i(n-1) s}$
 y que sea cerrado. 
-También lo podriamos haber visto por cardinalidad, de sus subgrupos: 
- $S$ contendrá a $<r^i>$ y a $<s>$ y como hemos visto antes, 
-$<r^4>$ era el único subgrupo de orden 2 de la forma $<r^i>$, ya que los otros $i, <r^i>$ tendrán 
-necesariamente cardinalidad mayor o igualdad a 4 por tanto  el único posible $S$ será generado por $r^4 y s.$ 
-
-Veamos que es cerrado para terminar 
-
+\paragraph{}
+Por otra parte veamos si debemos exigir alguna condición a $j$,
+es decir que cumpla que es cerrado para esos elementos: 
+\begin{center}
 \begin{tabular}{c|c c c c c}
-     & $ 1            $ & $  r^4         $ & $  s     $ & $ r^4 s $\\ 
+     & $ 1            $ & $  r^4         $ & $  r^js     $ & $ r^{4+j} s $\\ 
     \hline \\  
-    $ 1    $ & $ 1             $ & $        r^4   $ & $ s      $ & $ r^4 s $\\ 
-    $r^4   $ & $ r^4           $ & $1             $ & $ r^4 s  $ & $ s     $\\ 
-    $s     $ & $ s             $ & $r^4 s $ & $    1   $ & $  r^4  $\\
-    $r^4 s $ & $ r^4 s         $ & $ s            $ & $ r^4    $ & $ 1$
+    $ 1    $ & $ 1             $ & $        r^4   $ & $ s      $ & $ r^{4+j} s $\\ 
+    $r^4   $ & $ r^4           $ & $1             $ & $ r^{4+j} s  $ & $ r^{j}s     $\\ 
+    $r^js     $ & $ r^js             $ & $r^{4+j} s $ & $    1   $ & $  1  $\\
+    $r^{4+j} s $ & $ r^{4+j} s         $ & $ r^js            $ & $ 1    $ & $ 1$
 
 \end{tabular}
-
-
-Conclusión: El de orden 4 es $<r^2>, <r^4,r^js>$ con $j \in \{0..3\}$ (No hasta el siente porque si no se repetirían).
+\end{center}
+¡Podemos ver que para cualquier $j$  es cerrado!
+\paragraph{}
+\textbf{Conclusión:}
+Los subgrupos de orden 4 son $<r^2>, <r^4,r^js>$ con $j \in \{0..3\}$ o quivalentemente $<r^4,sr^j>$ con $j \in \{0..3\}$(No hasta el siente porque si no se repetirían).
 
 \subsubsection*{¿Contiene $D_8$ algún subgrupo isomorfo a $Q_2$?}
 
@@ -253,18 +304,18 @@ será $-1$, mientras que en S
 $|Q_2| = 8$ por tanto nuestro subgrupo deberá de ser de orden 8, el teorema de lagrange nos 
 dice que esto es posible. 
 
-Veamos si existe: 
+Otra forma de verlo sería:  
 Buscamos un subgrupo de orden 8, que por las consideraciones de los apartados anteriores
-será de la forma $S = <r^i, s>$.
+será de la forma $S = <r^i, r^js>$.
 
 Supongamos que existe $f$ un isomorfismo de grupos entre $S$ y $Q_2$
 existirán $a \in \{1..7\}$ y $ q \in {i,k,q} \subset Q_2$ que cumpla que $f(r^a s) = b$ 
-con como mucho existirá un $b$ que cumpla que  $f((r^b)^2) = -1$ porque sumpndría que $(r^b)^4 = 1$ y solo $b=4$ cumpla eso) 
+con como mucho existirá un $b$ que cumpla que  $f((r^b)^2) = -1$ porque sumpodría que $(r^b)^4 = 1$ y solo $b=4$ cumpla eso) 
 y $s^2 = 1$ así que $f(s)$ no podrá ser ni $i,k,j.$ 
 
 Ahora bien si $f(r^a s) = b$ entonces se tendría que $-1 = b^2 = f(r^a s) f(r^a s)$ 
 que por ser un isomorfismo sería equivaldría a $f((r^a s)^2) =f((r^a r^{a(n-1)}) = f(1)$
-lo cual es una contradición, ya que en un isomorfimor $f(1)=1.$
+lo cual es una contradición, ya que en un isomorfo $f(1)=1.$
 
 Por tanto no puede existir.
 
@@ -280,14 +331,14 @@ y su orden será $\frac{n}{mcd(n,p)} = q.$
 
 Pues bien volvamos a nuestro caso particular, $\mathbb Z_{600}$ con la operación suma seguirá esta misma estructura
  $\mathbb Z_{600} = <1 | 1^{600} = 1>$. 
-Por tando si sus subgrupos serán los  $mathbb Z_{p} = <1 | 1^p = 0>$ con $p$ divisor de 600, que a su vez
+Por tando si sus subgrupos serán los  $\mathbb Z_{p} = <1 | 1^p = 0>$ con $p$ divisor de 600, que a su vez
 tendrán como subgrupos los $Z_{t}$ con t divisores  
 
 En pos de preservar mi salud mental y a riesgo de encutrecer el pdf, he decido hacerle el grafo del retículo
 manuscrito, espero que me sepa perdonar. 
 \includegraphics[width=\textwidth]{Z600}
-
-\subsection{Tercer apartado}
+Nota: el $0$ del grafo representa a $\{0\}$
+\subsection{Apartado tercero}
 
 \begin{micaja}
     Consideramos las permutaciones de $S_9,$
@@ -296,17 +347,17 @@ manuscrito, espero que me sepa perdonar.
     Determine su orden y uno de sus generadores. 
 \end{micaja}
 
-Lo primero que vamos a hacer es espresar $\sigma$ y $\tau$ como ciclos disjuntos: 
+Lo primero que vamos a hacer es expresar $\sigma$ y $\tau$ como ciclos disjuntos: 
 \begin{itemize}
     \item $\sigma = (13859),$ que es un ciclo de longitud (y por tanto orden) 5.
     \item $\tau = (4 7),$ que es un ciclo de longitud (y por tanto orden) 2.
 \end{itemize}
 
-Observar los órdenes de un permutación es muy interesante porque si $\beta$ es una permutación
+Si $\beta$ es una permutación
 de longitud $n$ entonces $\beta^n = 1.$
 
 Además, supongamos ahora  $\alpha$  es una permutación o composición de
-permutacionens que se puede descomponer como $alpha = a_0 a_1 ..a_r$ con $a_i$ ciclos 
+permutacionens que se puede descomponer como $\alpha = a_0 a_1 ..a_r$ con $a_i$ ciclos 
 disjuntos de longitud $l_i$, entonces se tiene que el $mcm(l_1,l_2..l_r)$ será el orden de la permutación,
 ya que si $m = mcm(l_0, l_1,..,l_3)$  y además por ser $a_0, a_1,..,a_r$ disjuntos serán conmutativos
   se tendrá que 
@@ -342,7 +393,7 @@ $$ a_i = s^{\frac{\lambda}{L_i}}$$
 Con esto hemos probado que $<\alpha> \subseteq <s>.$ Para la otra inclusión, si 
 $L_i= \prod_{i=0}^{i-1} l_i \prod_{i+1}^r l_i$ (que recordamos que eran primos relativos)
 entonces el 
-$$ord(<s>)= mcm(L_0,..., L_r) = L_i*l_i = mcm(l_0, l_1,..., l_r) = ord(<\alpha>)$$
+$$ord(<s>)= mcm(L_0,..., L_r) = L_i l_i = mcm(l_0, l_1,..., l_r) = ord(<\alpha>)$$
 para cualquier $i$ subíndice de los coeficientes. 
 
 Por lo que concluimos que $$<\alpha> = <s>$$ y es un grupo cíclico. 
@@ -360,7 +411,7 @@ Por tanto
 
  $$ord(< \sigma, \tau>) = mcm(ord(\sigma), ord(\tau)) = mcm (5,2) = 10.$$
 
-\subsection{Cuarto apartado}
+\subsection{Apartado cuarto}
 
 \begin{micaja}
     Sea $n \geq 2$ y $p \leq n$ un número primo. Demostrad que en $S_n$ los únicos elementos
@@ -371,12 +422,12 @@ Por tanto
 
 \textbf{Condición suficiente.}\paragraph{}
  Sea $s \in S_n$  una permutación de orden $p$, si $s$ es un ciclo entonces es eviendente. 
- Si no admitirá ser expresado como la composición de ciclos disjuntos $s = a_0..a_r$ que 
+ Si no, admitirá ser expresado como la composición de ciclos disjuntos $s = a_0..a_r$ que 
  tendrá respectivamente $l_0, ..., l_r$ órdenes, y por tanto $ord(a) = mcm(l_0,...,l_r)$
  pero claro el $ord(a) = p$ que es primo, entonces necesariamente $p = l_0 = ... = l_r.$ 
 
-
-\textbf{Condición suficiente.}\paragraph{}
+\paragraph{}
+\textbf{Condición necesaria.}\paragraph{}
 Por las consiceraciones sobre orden del apartado anterior, sabemos que para $s \in S_n$, 
 descomponible en ciclos disjuntos de longitud $p;$ entonces su orden 
 va a ser el mínimo común múltiplo del orden de sus ciclos disjuntos, pero como este es
@@ -384,17 +435,29 @@ siempre $p$ entonces el orden de $s$ es $p.$
 
 \subsubsection*{Elementos de orden 2 en $S_5$}
 
-En $S_5$ existe $\frac{5!}{3!} = 5\times 4 = 20$  ciclos de orden 2 diferentes. 
+En $S_5$ existe $\frac{1}{2}\frac{5!}{3!} = \frac{1}{2}5\times 4 = 10$  ciclos de orden 2 diferentes.
+(hemos dividido entre dos ya que los simétricos representan la misma transposición). 
 
 Y por el apartado anterior todos los elementos de orden 2 que existe serán producto de estos ciclo disjuntos, 
 (sin que importe el orden a la hora de componer): 
+Es más, no podrá contener una composición mayor de dos trasposiciones disjuntas, 
+ya que si hubiera más habría algún elemento que se repetiría formando algún
+ciclo mayor y ya no podría ser de orden 2 o ese caso es equivalente a uno de composición
+de menos de dos juntos disjuntos (el cual ya habriamos contabilizado).
 
-De lo que deducimos que habrá elementos de orden dos: $2^{20} -1$
+Vamos a ver cuántas permutaciones habrá como composición de dos ciclos disjuntos. 
+Tomamos una de las 10 posibles $(x_0 x_1)$ y de esta nos quedarán por combinar $5-2$ elementos,
+es decir $\frac{3!}{2}$ casos quitando simtrías.
+Finalmente como tenemos 10 permutaciones, elimitando la mitad (por conmutatividad) $\frac{10}{2} \frac{3!}{2} = 15$ 
+
+
+
+Con lo que concluimos que habrá elementos de orden dos: $10 + 15 = 25$ casos.
 
 \newpage
 
 \section{Ejercio 3}
-\subsection{Apartadoo primero}
+\subsection{Apartado primero}
 
 \begin{micaja}
     Sean las matrices de Heisenberg. 
@@ -463,10 +526,8 @@ para toda matriz de $G$ existe su inversa en $G.$
 
 \end{enumerate}
 
-\subsubsection*{Es abeliano}
+\subsubsection*{No es abeliano}
 
-El producto de matrices no es conmutativo en general, sin embargo para cualesquiera $A,B \in G$ 
-se cumple que 
 
 \begin{equation*}
     A B = 
@@ -489,30 +550,33 @@ se cumple que
     \end{pmatrix}
 \end{equation*}
 \begin{equation*}
-    = 
+    BA = 
     \begin{pmatrix}
-        1 & a+x & b+ za + y\\
-        0 & 1 & c + z \\
+        1 & x & y \\
+        0 & 1 & z \\
         0 & 0 & 1
     \end{pmatrix}
- = \begin{pmatrix}
-    1 & x & y \\
-    0 & 1 & z \\
+    \times
+    \begin{pmatrix}
+        1 & a & b \\
+        0 & 1 & c \\
+        0 & 0 & 1
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+    1 & x+a & b + xc + y\\
+    0 & 1 & z + c\\
     0 & 0 & 1
-\end{pmatrix}
-\times  
- \begin{pmatrix}
-    1 & a & b \\
-    0 & 1 & c \\
-    0 & 0 & 1
-\end{pmatrix}
-= B A
+    \end{pmatrix}
 \end{equation*}
+
+la entrada $(3,3)$ es diferente, luego no es cíclico.
+
 
 \subsubsection*{No es cíclico}
 
 
-También podriamos haberlo visto por la numerabilidad de $\mathbb R$
+Vamos a verlo por la numerabilidad de $\mathbb R$
 (sí, confieso que he matado moscas a cañonazos).
 Que fuera cíclico supondría que $\mathbb R$ es numerable, 
 ya que si existera una matriz $E \in G$, 
@@ -569,9 +633,35 @@ Que es de las formas de las matrices de $H$, por lo que es un subgrupo.
 
 \subsubsection*{Normalidad de H en G}
 
-Es normal porque $G$ es conmutativo y por tanto 
-para todo $a \in G$ se tendrá que $aH = Ha$
+$H$ será normal en $G$ si y solo si $AHA^{-1} \leq H$ para cualquier $A \in G.$
+Sean cualesquieras
+\begin{equation*}
+    A = 
+    \begin{pmatrix}
+        1 & a & b \\
+        0 & 1 & c \\
+        0 & 0 & 1
+    \end{pmatrix}
+    , Y \in H, 
+    Y = 
+    \begin{pmatrix}
+        1 & 0 & y \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+\end{equation*}
 
+Se tiene que 
+\begin{equation*}
+    A H A^{-1}= 
+    \begin{pmatrix}
+        1 & 0 & d \\
+        0 & 1 & 0\\
+        0 & 0 & 1
+    \end{pmatrix}
+\end{equation*}
+
+Luego $H$ es normal en $G$.
 \subsubsection*{f es un homomorfismo de grupos}
 
 Para que sea homomorfismo debe cumplir que $f(AB) = f(A)f(B)$ 
@@ -625,12 +715,12 @@ luego
 \end{equation*}
 
 \subsubsection*{Imagen de f}
-REDACTAR MEJOR
-Es todo $R$, bastará con ver que cierto conjunto de $G$
+
+Es todo $\mathbb R$, bastará con ver que cierto conjunto de $G$
 su imagen ya es $R.$
 
 Dada una matriz de $G$ fijamos $a$ arbitrariamente
-y por cómo está definida $c$ podrá ser cualquier real  por tanto 
+y por cómo está definida en $c$ la imagen podrá ser cualquier real. 
 
 
 \subsubsection*{No es monormorfismo}
@@ -640,7 +730,7 @@ Ya que su núcleo no es la identidad.
 Ya que $Img(f) = \mathbb R$
 
 \newpage
-\subsection{Segundo apartado}
+\subsection{Apartado segundo}
 
 \begin{micaja}
     Sea $f:S_4 \rightarrow S_6$ la aplicación dada por
@@ -663,7 +753,7 @@ Distinguiremos los siguientes casos:
 \begin{itemize}
     \item $a,b \in S_4$ pares, entonces $ab$ es par y por tanto $f(a)f(b)=ab = f(ab).$
     \item $a,b \in S_4$ impares ambos, entonces $ab$ es par y por tanto $f(a)f(b)=a(56)b(56).$
-    Como $b \ in S_4$ no contendrá ni al 5 ni al 6 y será disjunto con $(56)$ por tanto podemos comutarlo
+    Como $b \in S_4$ no contendrá ni al 5 ni al 6 y será disjunto con $(56)$ por tanto podemos comutarlos
     (solo con ese, no con a.) $a(56)b(56) = ab(56)(56) = ab = f(ab)$ por ser $ab$ par.
     \item $a,b \in S_4$ con $a$ impar y $b$ par: $f(a)f(b) = a(56)b$ y aplicando de nuevo que $(56),b$ son
     disjuntos podemos conmutarlos:$a(56)b = ab(56) = f(ab)$ por ser $ab$ impar.
@@ -814,11 +904,56 @@ buscábamos, que $B \cap C$ es subgrupo de  $A  \cap C.$
 
 \subsection*{$B \cap C$ es subgrupo normal de  $A  \cap C$}
 
-\begin{micaja}
+    Como hipótesis partimos de que $B \trianglelefteq A$ y que $A,B,C \in sub(G).$
+
+Entonces en particular tenemos que $A \cap C$ es un subgrupo de $A$ y que $A \cap B = B.$
+
+Con esto y una sonrisa podemos, ya que se cumplen las hipótesis del tercer teorema de isomorfía
+( $B, A \cap C \leq A$ y $B \trianglelefteq A$ )
+podemos afirmar que $B \cap (A \cap C) \trianglelefteq (A \cap C)$
+pero claro, $B \cap (A \cap C) = (B \cap C).$
+
+Por tanto hemos probado que 
+
 \begin{equation*}
+    B \cap C \trianglelefteq A \cap C.
+\end{equation*}
+
+
+Lo recién demostrado da derecho a la vida de  $\frac{A \cap C}{B \cap C}$
+y por tanto a la pregunta siguiente del examen tiene sentido 
+(cosa que no había dudado en ningún momento). 
+
+
+
+\begin{micaja}
+    Demuestre que 
+\begin{equation*} 
     \frac{A \cap C}{B \cap C} \cong \frac{B(A \cap C)}{B}
 \end{equation*}
 \end{micaja}
+
+%Antes de nada tengamos presenta la siguiente igualdad elemental de conjuntos.
+%Sean $A,B$ dos conjuntos no vacío que cumplen que $B \subseteq A$ entonces $B = A \cap B.$
+
+Hemos visto en el apartado anterior que se cuplen las hipótesis 
+ del tercer teorema de isomorfía y utilizando toda la artillería llegamos 
+ a las siguientes igualdades: 
+
+ \begin{equation*}
+    \frac{A \cap C}{B \cap C} = \frac{A \cap C}{B \cap (A \cap C)} \cong \frac{(A \cap C)B}{B}
+    = \frac{B(A \cap C)}{B}
+ \end{equation*}
+\begin{itemize}
+    \item Para la primera igual hemos usado la observación conjuntística.
+    \item Para el primer isomorfismo, la tercera consecuencia del 
+    tercer teorema de isomorfía. 
+    \item Para la segunda igualdad,aprovechamos que $B \trianglelefteq A$ es decir que  $aB = Ba$ para todo $a \in A$
+    entonces en particular lo será para cualquiera $a \in A\cap C$
+    lo que a nivel de conjuntos se traduce en que $B(A\cap C) = (C \cap A) B.$
+   
+\end{itemize}
+ 
 
 
 \begin{micaja}
@@ -829,8 +964,188 @@ buscábamos, que $B \cap C$ es subgrupo de  $A  \cap C.$
     \end{equation*}
 \end{micaja}
     
+\subsubsection*{$C \trianglelefteq G,$ demostrad que $BC \trianglelefteq AC$.}
+En esta demostración utilizaré la siguiente relación de normalidad: 
+
+Si $N \trianglelefteq S$ entonces sean cuales sean $s \in S, n \in N$ existirán $n',n'' \in N$
+tales que $sn = sn'$ y $ns = sn''.$ (De hecho $n'' = n$).
+
+Queremos probar que $BC \trianglelefteq AC$, 
+esto será si para todo $ac  \in AC$ se cumple que $ac BC (ac)^{-1} \leq BC$ o 
+equivalentemente que para todo $\beta \gamma \in BC$ se cumple que $ac \beta \gamma (ac)^{-1} \in BC.$
+
+Vamos a ir operando con $ac \beta \gamma (ac)^{-1}$.
+\begin{itemize}
+    \item $ac \beta \gamma (ac)^{-1} = ac \beta \gamma c^{-1} a^{-1}.$
+    \item $C$ es un subgrupo, y $\gamma , c \in C,$ luego existe $c_1 \in C$ tal que $c_1 = \gamma c^{-1}.$
+    \item Por la observación del principio y por ser $C \trianglelefteq G$ existirá un $c_2$ tal que $c_1 a^{-1} = a^{-1}c_2.$
+    Luego $ac \beta c_1 a^{-1} = ac \beta a^{-1} c_2.$
+    \item Como $B \trianglelefteq A$ repetimos varias veces el razonamiento anterior. 
+\end{itemize}
+
+Finalmente llegamos a que $ac \beta \gamma (ac)^{-1} = a a^{-1} b_2 c_3$ con $b_2 \in B$, $c_3  \in C$, 
+y por ende que $ac \beta \gamma (ac)^{-1} \in BC$ como queríamos ver. 
+
+Algo notable de esta demostración es que podríamos debilitar las hipótesis iniciales, es decir
+que en vez de que $C \trianglelefteq G$ nos bastaría con que $C \trianglelefteq A.$ De todas formas
+utilizaremos la normalidad más estricta para el siguiente apartado. 
+
+\begin{micaja}
+    Si además $C \trianglelefteq G,$ demostrad que  
+
+    \begin{equation*}
+        \frac{AC}{AC} \cong \frac{A}{A \cap (BC).}
+    \end{equation*}
+\end{micaja}
+    
+En el contexto en que que estamos trabajando son válidas las siguientes afirmaciones: 
+
+\begin{enumerate}
+    \item Como $B \trianglelefteq A$ entonces $A = AB.$
+    \item Por el apartado anterior $BC \trianglelefteq AC$ y además que $A, BC \leq AC.$
+    $A \leq AC$ ya que $C$ es subgrupo y contiene al cero y por tanto para todo $a \in A$ se tiene que
+     $a1 \in AC$ lo que hace que $A subset AC$
+\end{enumerate}
+
+Primero por la observación (1) y luego por la segunda obtenemos lo que queriamos demostrar.
+
+\begin{equation*}
+    \frac{AC}{BC} = \frac{ABC}{BC} = \frac{A}{A\cap (BC).}
+\end{equation*}
+
 
 \subsection{Apartado segundo}
 
+\begin{micaja}
+    Sea $G$ un grupo. Un subgrupo $H \leq G$ se dice que un subgrupo de Hall de $G$ si su 
+    índice  en $G$ es primo relativo con su orden.
 
+    Sea $N \triangleright G$ un subgrupo de orden de G. Demostrad que si H es un subgrupo de Hall de 
+    $G$, entonces $H \cap N$ es un subgrupo de Hall de $N$ y $HN/N$ es un subgrupo de Hall de $G/N.$
+\end{micaja}
+
+
+\subsubsection*{$H \cap N$ es un subgrupo de Hall de $N$ }
+
+Gracias al teorema de lagrange sabemso que $|G| = [G:H] |H| = pq$ con $p,q$ primos relativos
+Se tiene que $N$ es subgrupo normal de $G$, sabemos que $1 \leq |N| \leq |G|\}.$
+Por otro lado la interseción de subgrupos es un subgrupo así que $1 \in |H \cap N|$ y si 
+teníamos que $|H|=p$  entonces $1 \leq |N \cap H| \leq p.$
+Además el teorema de Larange nos da las siguientes igualdades:
+
+
+\begin{equation}
+    \left\{
+      \begin{array}{l}
+        |G| = [G:H] |H|\\
+        |G| = [G:N] |N| \\
+        |N| = [N: N \cap H] |N\cap H|   
+      \end{array}
+      \right.
+  \end{equation}
+
+
+
+Y queremos ver que $mcd([N: N \cap H] ,|N\cap H|) = 1.$
+
+Como $N$ es normal se cumplen las hipótesis del teorema de Lagrange
+y tenemos también que $N \cap H \trianglelefteq H$
+lo que da derecho a la vida a 
+$$\frac{H}{N \cap H}$$ y nos indica además que $|N\cap H|$ es 
+divisor de $|H|.$
+
+Y concatenando las igualdades de (4) tenemos la siguiente igualdad
+
+\begin{equation*}
+    [G:N] [N: N \cap H] |N\cap H|  = [G:H] |H|
+\end{equation*}
+
+Y saca a relucir que si queremos que $mcd([N: N \cap H] ,|N\cap H|) = 1$,
+$[N: N \cap H]$ debe de ser únicamente producto de factores de $[G:H],$ es decir un divisor suyo.
+
+Lo cual se cumple por la siguiente igualdad:
+
+\begin{equation}
+    [N: N \cap H] = \frac{|N|}{|N\cap H|} = \frac{|N|}{|H|}\frac{|H|}{|N\cap H|}  
+    =  \frac{|N|}{|H|}\frac{|HN|}{|N|} 
+\end{equation}
+\begin{equation*}
+    = |HN| \frac{|G:H|}{|G|} = \frac{|G:H|}{|G:HN|} 
+\end{equation*}
+
+Que ha sido deducida siguiendo estos pasos:
+\begin{enumerate}
+    \item Despejando el índice de la tercera ecuación de (4).
+    \item Aplicando el teorema de isomorfía.
+    \item Despejando $|H|$ de la primera ecuación de (4) y 
+sustituyendo su valor.
+    \item $NH$ es subgrupo de $G$ y por Teorema Lagrange.
+\end{enumerate}
+
+\textbf{Recapitulando}
+
+Tenemos que  $[N: N \cap H]$ es divisor de $|G:H|$ y que
+$|N\cap H|$ lo es de $H$, por tanto 
+
+$$mcd([N: N \cap H] ,|N\cap H|) = 1$$
+
+y hemos probado que $|N\cap H|$ es subgrupo de Hall de $H.$
+
+\subsubsection*{$HN/N$ es un subgrupo de Hall de $G/N$}
+
+Procederemos igual que el apartado anterior buscando factorizar en términos conocidos
+$|HN/N|$ y $[HN/N : G/N].$
+
+Por el tercer teorema de isomorfía
+$$|HN/N| = \frac{|H|}{|H \cap N|}$$ luego es divisor de $H.$
+
+
+Para $[HN/N : G/N]$ vamos a tener que trabajar un poquillo más: 
+
+Sabemos por el tercer teorema de isomorfía que  $N \trianglelefteq NH$ y $N$ es normal en $G,$
+por tanto $\frac{HN}{N} \leq \frac{G}{N}$ y se cumplen 
+las hipótesis del segundo teorema de isomorfía, el cual
+podemos aplicar tras despejar nuestro índice, del Teorema de Lagrange 
+
+\begin{equation*}
+    [HN/N : G/N] = \frac{|G/N|}{|HN/G|} = |G|/|HN|
+\end{equation*}
+
+y de la ecuación (5) del apartado anterior podemos despejar $HN$ como $|HN|= \frac{[N:N \cap H] |G|}{[G:H]}$ 
+ llegando a queda
+
+\begin{equation*}
+    |G|/|HN| = |G| \frac{[G:H]}{[N:N \cap H] |G|}
+\end{equation*}
+Luego 
+
+\begin{equation*}
+    [HN/N : G/N] = \frac{[G:H]}{[N:N \cap H]}
+\end{equation*}
+
+y por tanto es divisor de $[G:H].$
+
+En conclusión tenemos que: 
+
+\begin{itemize}
+    \item $|HN/N|$ divisor de $H.$
+    \item $[HN/N : G/N]$ es divisor de $[G:H].$
+    \item $H$ y $[G:H]$ son primos relativos. 
+\end{itemize}
+
+Luego $|HN/N|$ y $[HN/N : G/N]$ son primos relativos y 
+$HN/N$ es un subgrupo de hall de $G/N.$
+
+
+\subsection*{Comentario final}
+Pensando el ejercicio se me ocurrió y que con una condición más fuerte, que 
+me parece , que en vez de primos relaticos sean primos (a esto llamaré condición de Hall fortidicada :)  
+Se tendría que gracias al teorema de lagrange  
+$|G| = [G:H] |H| = pq$ con $p,q$ primos, pero es que esta informacíon va más allá,
+porque cualquier otro subgrupo propio $S$ de $G$ también será un subgrupo de Hall fortificado, ya que el teorema
+de Lagrange fuerza a que $|G| = [G:S] |S|$ y los únicos divisores de $|G|$ son $1,p,q,|G|$ y 
+$1$ y $|G|$ no son porque el subgrupo es propio. 
 \end{document}
+
+
+
